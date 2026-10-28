@@ -1,0 +1,160 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Пошукові ігри, гризунці й лизалки</title><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800;900&display=swap"><style>
+/* Layout: one narrow column like the course materials page, warm paper ground, cards only where content is a separate object */
+:root{
+  --bg:#FAF6F6; --paper:#FFFFFF; --sand:#F1E8E1; --ink:#232323; --body:#4A403A; --muted:#7A6A5E;
+  --rose:#A85A5C; --pink:#D48A8B; --blush:#F3D7D7; --olive:#6C794D; --oliveSoft:#E3E7D8; --brown:#403424; --line:#E8DDD4;
+  --onBrown:#FAF6F6; --onBrownMuted:#E3D8CE;
+  --display:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1E1915; --paper:#2A231E; --sand:#251F1A; --ink:#F4EDE8; --body:#D9CDC4; --muted:#A8998D;
+  --rose:#E59A9C; --pink:#D48A8B; --blush:#3E2A2A; --olive:#A3B07F; --oliveSoft:#2E3325; --brown:#120E0B; --line:#3A312A;
+  --onBrown:#FAF6F6; --onBrownMuted:#CFC2B7; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1E1915; --paper:#2A231E; --sand:#251F1A; --ink:#F4EDE8; --body:#D9CDC4; --muted:#A8998D;
+  --rose:#E59A9C; --pink:#D48A8B; --blush:#3E2A2A; --olive:#A3B07F; --oliveSoft:#2E3325; --brown:#120E0B; --line:#3A312A;
+  --onBrown:#FAF6F6; --onBrownMuted:#CFC2B7; color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--rose)}
+a:focus-visible,video:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.stack{display:flex;flex-direction:column}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(34px,9vw,46px);line-height:1.02;font-weight:900}
+h1 span{color:var(--rose);display:block}
+h2{font-size:28px;line-height:1.1;font-weight:900}
+h2 em{font-style:normal;color:var(--rose)}
+h3{font-size:18px;line-height:1.25;font-weight:800}
+.pill{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--blush);color:var(--rose);padding:6px 12px;border-radius:999px}
+.lead{font-size:17px;color:var(--body)}
+.lead b{color:var(--ink)}
+
+.hero{padding-block:28px 36px;gap:18px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:700;color:var(--muted)}
+.hero-photo{width:100%;max-width:100%;aspect-ratio:4/3;object-fit:cover;object-position:20% 60%;border-radius:28px;display:block}
+
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.way{background:var(--sand);border-radius:20px;padding:14px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.way .ic{width:38px;height:38px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center}
+.way .ic svg{width:20px;height:20px;stroke:#fff}
+.way b{font-size:16px}
+.way span{font-size:13px;color:var(--body);line-height:1.35}
+
+.note{background:var(--brown);color:var(--onBrown);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.note b{font-size:19px}
+.note p{color:var(--onBrownMuted);font-size:15px}
+
+section{padding-block:36px;gap:16px}
+.rules{display:flex;flex-direction:column;gap:12px;list-style:none}
+.rules li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;font-size:15px;color:var(--body)}
+.rules li b{color:var(--ink)}
+.rules .n{width:32px;height:32px;border-radius:50%;background:var(--olive);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.rules .warn .n{background:var(--rose)}
+
+.games{background:var(--sand)}
+.vids{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.vid{display:flex;flex-direction:column;gap:8px;min-width:0}
+.vid video{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:20px;background:var(--brown);display:block}
+.vid .meta{display:flex;flex-direction:column;gap:3px}
+.vid .k{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose)}
+.vid p{font-size:14px;color:var(--body);line-height:1.4}
+
+.group{gap:6px}
+.mat{background:var(--paper);border-radius:24px;padding:20px;gap:10px;margin-top:6px}
+.mat-rows{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mat-rows>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mat .k{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose)}
+.mat p{font-size:15px;color:var(--body)}
+@media (max-width:420px){.mat-rows{grid-template-columns:1fr}}
+.sub{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.list{display:flex;flex-direction:column}
+.item{display:flex;flex-direction:column;gap:4px;padding-block:14px;border-top:1px dashed var(--line)}
+.item:first-child{border-top:0;padding-top:6px}
+.item p{font-size:15px;color:var(--body)}
+.shop{font-size:15px;font-weight:800;text-decoration:none}
+.shop:hover{text-decoration:underline}
+.prod{width:100%;max-width:360px;aspect-ratio:4/3;object-fit:cover;border-radius:18px;margin-top:6px;display:block}
+.soon{font-size:14px;font-weight:700;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--oliveSoft);color:var(--olive);margin-left:6px;vertical-align:3px}
+
+footer{padding-block:28px 44px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+@media (min-width:560px){.vids{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:360px){.ways{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<div class="page">
+<header class="wrap hero stack">
+  <div class="brand"><span>Наталка Виноградська · кінологиня</span><span class="pill">Бонус курсу</span></div>
+  <h1>Пошукові ігри,<span>гризунці й лизалки</span></h1>
+  <p class="lead">Усі ці іграшки потрібні для одного: <b>заспокоїти собаку й переключити її увагу.</b> Собака заспокоюється, коли гризе, вилизує чи винюхує.</p>
+  <div class="ways">
+    <div class="way"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4a3 3 0 0 0-2 5.2L14.8 19a3 3 0 1 0 4.2-4.2L9.2 5A3 3 0 0 0 7 4z"/></svg></span><b>Гризе</b><span>Погризушки: картон, папір, палички</span></div>
+    <div class="way"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h14v2a7 7 0 0 1-14 0z"/><path d="M3 6h18"/></svg></span><b>Вилизує</b><span>Іграшки для ласощів і килимки</span></div>
+    <div class="way"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span><b>Винюхує</b><span>Пошукові ігри з відео</span></div>
+  </div>
+  <img class="hero-photo" src="img/natalka.jpg" alt="Наталка лежить на траві й обіймає свою собаку">
+  <div class="note"><b>Кожній собаці підходить різне.</b><p>Пробуйте різні варіанти й дивіться, що заспокоює саме вашу собаку.</p></div>
+</header>
+
+<section class="wrap stack" id="bezpeka">
+  <span class="pill">Перед початком</span>
+  <h2>Безпека</h2>
+  <ul class="rules">
+    <li class="warn"><span class="n">!</span><span><b>Усі іграшки давайте тільки під наглядом.</b></span></li>
+    <li><span class="n">1</span><span><b>Найбезпечніше — картон і папір.</b> У них немає пластику, який часто є в магазинних іграшках, і ними не можна подавитися, як, наприклад, паличками з магазину.</span></li>
+    <li class="warn"><span class="n">2</span><span><b>Але не для всіх.</b> Деякі собаки ковтають забагато паперу чи картону. Таким собакам цей варіант не підходить.</span></li>
+    <li><span class="n">3</span><span><b>Розмір іграшки з магазину уточнюйте в продавця.</b> Замала іграшка — ризик задухи. Завелика буде незручною й нецікавою для собаки.</span></li>
+  </ul>
+</section>
+
+<section class="games" id="igry"><div class="wrap stack" style="gap:16px">
+  <span class="pill">Винюхує</span>
+  <h2>Пошукові ігри <em>з того, що є вдома</em></h2>
+  <p class="lead">Для всіх ігор потрібні картон, папір або тканина і улюблені ласощі собаки.</p>
+  <div class="vids"><figure class="vid"><video controls playsinline preload="metadata" poster="img/7448.jpg" aria-label="Тубус від туалетного паперу"><source src="video/7448.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 1</span><h3>Тубус від туалетного паперу</h3><p>Кладемо ласощі всередину й загинаємо краї. Собака розриває тубус і дістає смаколик.</p></figcaption></figure><figure class="vid"><video controls playsinline preload="metadata" poster="img/7452.jpg" aria-label="Тубус від паперових рушників"><source src="video/7452.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 2</span><h3>Тубус від паперових рушників</h3><p>Те саме, але тубус довший і ласощів більше. Гра триває довше.</p></figcaption></figure><figure class="vid"><video controls playsinline preload="metadata" poster="img/7454.jpg" aria-label="Коробка з-під яєць"><source src="video/7454.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 3</span><h3>Коробка з-під яєць</h3><p>Розкладаємо ласощі по лунках і закриваємо коробку. Собака відкриває її носом і лапами.</p></figcaption></figure><figure class="vid"><video controls playsinline preload="metadata" poster="img/7455.jpg" aria-label="Коробка з папірцями"><source src="video/7455.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 4</span><h3>Коробка з папірцями</h3><p>Наповнюємо коробку зім’ятим папером і ховаємо ласощі між папірцями.</p></figcaption></figure><figure class="vid"><video controls playsinline preload="metadata" poster="img/7456.jpg" aria-label="Кошик з ганчірками"><source src="video/7456.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 5</span><h3>Кошик з ганчірками</h3><p>Ховаємо ласощі між шматками тканини в кошику. Собака винюхує й розкопує.</p></figcaption></figure><figure class="vid"><video controls playsinline preload="metadata" poster="img/7459.jpg" aria-label="Пошук по квартирі"><source src="video/7459.mp4" type="video/mp4"></video>
+<figcaption class="meta"><span class="k">Гра 6</span><h3>Пошук по квартирі</h3><p>Ховаємо ласощі в іграшку-сортер, у кошик і по кімнатах. Собака обшукує квартиру й відкриває іграшку.</p></figcaption></figure></div>
+  <div class="mat stack">
+    <span class="sub" style="margin-top:0">Купити</span>
+    <h3>Пошукові килимки</h3>
+    <div class="mat-rows">
+      <div><span class="k">Як використовувати</span><p>Киньте жменьку їжі в килимок.</p></div>
+      <div><span class="k">Для чого</span><p>Нюхання розслабляє собаку, переключає увагу й зменшує збудження.</p></div>
+    </div>
+    <a class="shop" href="https://www.instagram.com/chill_mpet/" target="_blank" rel="noopener">Подивитись в Instagram @chill_mpet <span aria-hidden="true">→</span></a>
+  </div>
+</div></section>
+
+<section class="wrap stack" id="pogryzushky">
+  <span class="pill">Гризе</span>
+  <h2>Погризушки</h2>
+  <div class="group stack"><span class="sub">Своїми руками</span><div class="list">
+    <div class="item"><h3>Картонна коробка</h3></div>
+    <div class="item"><h3>Туалетний папір, серветки, паперові рушники</h3><p>Без запаху.</p></div>
+    <div class="item"><h3>Тубуси від паперових рушників</h3></div>
+  </div></div>
+  <div class="group stack"><span class="sub">Купити</span><div class="list">
+    <div class="item"><h3>Палички з обробленої деревини</h3><p>Мають різний розмір і твердість. Наприклад, паличка з оливкового дерева DoggoChew.</p><a class="shop" href="https://healthydoggo.ua/palytsia-dlia-zhuvannia-z-olyvkovoho-dereva-dlia-sobak-doggochew-olive-wood-rozmir-l-do-35kh/" target="_blank" rel="noopener">Подивитись у магазині <span aria-hidden="true">→</span></a></div>
+    <div class="item"><h3>Палички з оливкового дерева Canophera</h3><p>Бувають різних розмірів, шукайте в зоомагазинах.</p><img class="prod" src="img/canophera.jpg" alt="Палички Canophera з оливкового дерева на полиці зоомагазину"></div>
+    <div class="item"><h3>Штучні палички Petstages</h3><a class="shop" href="https://todli.ua/petstages-ihrashka-d-sobak-petsteidzhes-doh-vud-stik-mitsna-hilka-xs-pt216/" target="_blank" rel="noopener">Подивитись у магазині <span aria-hidden="true">→</span></a></div>
+  </div></div>
+</section>
+
+<section class="wrap stack" id="lasoshchi" style="padding-top:0">
+  <span class="pill">Вилизує</span>
+  <h2>Іграшки для ласощів</h2>
+  <div class="list">
+    <div class="item"><h3>Конг<span class="tag">гризе + вилизує</span></h3><p>Буває різних розмірів і твердості. Підходить і для вилизування ласощів, і для корму.</p><a class="shop" href="https://todli.ua/ihrashka-kong-klasychnyi-xs/" target="_blank" rel="noopener">Подивитись у магазині <span aria-hidden="true">→</span></a></div>
+    <div class="item"><h3>Toppl<span class="tag">вилизує</span></h3><p>Для вилизування їжі.</p><a class="shop" href="https://todli.ua/west-paw-ihrashka-dlia-sobak-toppl-small-tangerine-toppl-d-lasoshchiv-malyi-oranzhevyi-8sm/" target="_blank" rel="noopener">Подивитись у магазині <span aria-hidden="true">→</span></a></div>
+    <div class="item"><h3>Лизальні килимки<span class="tag">вилизує</span></h3><p>Для вилизування їжі.</p><a class="shop" href="https://baksbarsik.com.ua/sobakam/aksesuary-dlia-sobak/myski-dlia-sobak/p2258947395-lizalnyj-kovrik-antistress.html" target="_blank" rel="noopener">Подивитись у магазині <span aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<footer class="wrap"><span>Курс «Спокійний собака на вулиці і вдома»</span><span>@dogtrainer.vynohradska</span></footer>
+</div>
+</body></html>

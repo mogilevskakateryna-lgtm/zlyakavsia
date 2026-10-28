@@ -1,0 +1,199 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Урок 3 · Собака злякався</title><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800;900&display=swap"><style>
+/* Layout: one narrow column like the course materials page, warm paper ground, cards only where content is a separate object */
+:root{
+  --bg:#FAF6F6; --paper:#FFFFFF; --sand:#F1E8E1; --ink:#232323; --body:#4A403A; --muted:#7A6A5E;
+  --rose:#A85A5C; --pink:#D48A8B; --blush:#F3D7D7; --olive:#6C794D; --oliveSoft:#E3E7D8; --brown:#403424; --line:#E8DDD4;
+  --onBrown:#FAF6F6; --onBrownMuted:#E3D8CE;
+  --display:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1E1915; --paper:#2A231E; --sand:#251F1A; --ink:#F4EDE8; --body:#D9CDC4; --muted:#A8998D;
+  --rose:#E59A9C; --pink:#D48A8B; --blush:#3E2A2A; --olive:#A3B07F; --oliveSoft:#2E3325; --brown:#120E0B; --line:#3A312A;
+  --onBrown:#FAF6F6; --onBrownMuted:#CFC2B7; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1E1915; --paper:#2A231E; --sand:#251F1A; --ink:#F4EDE8; --body:#D9CDC4; --muted:#A8998D;
+  --rose:#E59A9C; --pink:#D48A8B; --blush:#3E2A2A; --olive:#A3B07F; --oliveSoft:#2E3325; --brown:#120E0B; --line:#3A312A;
+  --onBrown:#FAF6F6; --onBrownMuted:#CFC2B7; color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--rose)}
+a:focus-visible,video:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.stack{display:flex;flex-direction:column}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(34px,9vw,46px);line-height:1.02;font-weight:900}
+h1 span{color:var(--rose);display:block}
+h2{font-size:28px;line-height:1.1;font-weight:900}
+h2 em{font-style:normal;color:var(--rose)}
+h3{font-size:18px;line-height:1.25;font-weight:800}
+.pill{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--blush);color:var(--rose);padding:6px 12px;border-radius:999px}
+.lead{font-size:17px;color:var(--body)}
+.lead b{color:var(--ink)}
+
+.hero{padding-block:28px 36px;gap:18px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:700;color:var(--muted)}
+.hero-photo{width:100%;max-width:100%;aspect-ratio:4/3;object-fit:cover;object-position:20% 60%;border-radius:28px;display:block}
+
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.way{background:var(--sand);border-radius:20px;padding:14px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.way .ic{width:38px;height:38px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center}
+.way .ic svg{width:20px;height:20px;stroke:#fff}
+.way b{font-size:16px}
+.way span{font-size:13px;color:var(--body);line-height:1.35}
+
+.note{background:var(--brown);color:var(--onBrown);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.note b{font-size:19px}
+.note p{color:var(--onBrownMuted);font-size:15px}
+
+section{padding-block:36px;gap:16px}
+.rules{display:flex;flex-direction:column;gap:12px;list-style:none}
+.rules li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;font-size:15px;color:var(--body)}
+.rules li b{color:var(--ink)}
+.rules .n{width:32px;height:32px;border-radius:50%;background:var(--olive);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.rules .warn .n{background:var(--rose)}
+
+.games{background:var(--sand)}
+.vids{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.vid{display:flex;flex-direction:column;gap:8px;min-width:0}
+.vid video{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:20px;background:var(--brown);display:block}
+.vid .meta{display:flex;flex-direction:column;gap:3px}
+.vid .k{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose)}
+.vid p{font-size:14px;color:var(--body);line-height:1.4}
+
+.group{gap:6px}
+.mat{background:var(--paper);border-radius:24px;padding:20px;gap:10px;margin-top:6px}
+.mat-rows{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mat-rows>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mat .k{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose)}
+.mat p{font-size:15px;color:var(--body)}
+@media (max-width:420px){.mat-rows{grid-template-columns:1fr}}
+.sub{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.list{display:flex;flex-direction:column}
+.item{display:flex;flex-direction:column;gap:4px;padding-block:14px;border-top:1px dashed var(--line)}
+.item:first-child{border-top:0;padding-top:6px}
+.item p{font-size:15px;color:var(--body)}
+.shop{font-size:15px;font-weight:800;text-decoration:none}
+.shop:hover{text-decoration:underline}
+.prod{width:100%;max-width:360px;aspect-ratio:4/3;object-fit:cover;border-radius:18px;margin-top:6px;display:block}
+.soon{font-size:14px;font-weight:700;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--oliveSoft);color:var(--olive);margin-left:6px;vertical-align:3px}
+
+footer{padding-block:28px 44px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+@media (min-width:560px){.vids{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:360px){.ways{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.vid1{max-width:340px;width:100%;align-self:center}
+.vid1 video{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:24px;background:var(--brown);display:block}
+.vid1.wide video{aspect-ratio:9/16}
+.cap{font-size:14px;color:var(--muted);text-align:center;line-height:1.4}
+.dont{display:flex;flex-direction:column;gap:12px;list-style:none;counter-reset:d}
+.dont li{background:var(--paper);border-radius:20px;padding:16px 16px 16px 60px;position:relative;display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--body)}
+.dont li::before{counter-increment:d;content:counter(d);position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.dont li.do::before{background:var(--olive)}
+.dont b{color:var(--ink);font-size:17px}
+.later{display:flex;flex-direction:column;gap:8px;list-style:none}
+.later li{display:flex;gap:10px;align-items:center;font-size:16px;font-weight:700}
+.later li::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--olive)}
+.ex{border-top:1px solid var(--line)}
+.ex-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ex-num{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.ex h2 .sig{color:var(--rose)}
+.blk{display:flex;flex-direction:column;gap:6px}
+.blk .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.blk p,.blk li{font-size:16px;color:var(--body)}
+.steps{display:flex;flex-direction:column;gap:10px;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--blush);color:var(--rose);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.timing{background:var(--oliveSoft);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.timing .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--olive)}
+.timing p{color:var(--ink)}
+.timing .steps li{font-size:16px;color:var(--ink)}
+.timing .steps li::before{background:var(--paper);color:var(--olive)}
+.soonvid{max-width:340px;width:100%;align-self:center;min-height:120px;border-radius:24px;background:var(--sand);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--muted);font-weight:700;font-size:15px}
+.algo{background:var(--brown);color:var(--onBrown);border-radius:28px;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.algo h2{color:var(--onBrown)}
+.algo ol{list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:a}
+.algo li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;font-size:17px;font-weight:700}
+.algo li::before{counter-increment:a;content:counter(a);width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center}
+.algo .small{font-size:14px;color:var(--onBrownMuted)}
+
+.author{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;background:var(--sand);border-radius:24px;padding:14px}
+.author img{width:120px;height:150px;object-fit:cover;object-position:15% 60%;border-radius:18px;display:block;max-width:100%}
+.author .who{display:flex;flex-direction:column;gap:6px;min-width:0}
+.author .who b{font-size:19px;line-height:1.15}
+.author .role{font-size:13px;font-weight:700;color:var(--olive)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fact{background:var(--paper);border-radius:16px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;gap:2px}
+.fact b{font-size:22px;font-weight:900;color:var(--rose);line-height:1.1}
+.fact span{font-size:12px;color:var(--body);line-height:1.3}
+.bio{font-size:15px;color:var(--body);display:flex;flex-direction:column;gap:8px}
+.bio b{color:var(--ink)}
+.mini{display:flex;gap:12px;align-items:center}
+.mini img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:15% 60%;flex:0 0 56px;max-width:100%}
+.mini div{display:flex;flex-direction:column;font-size:14px;color:var(--muted);min-width:0}
+.mini b{font-size:16px;color:var(--ink)}
+.lesson-tag{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--olive)}
+.recap{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--body)}
+.recap .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.next{background:var(--blush);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.next .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.next b{font-size:19px;line-height:1.25}
+.next p{font-size:15px;color:var(--body)}
+.task{background:var(--oliveSoft);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.task .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--olive)}
+.task p{font-size:16px;color:var(--ink)}
+.progress{display:flex;gap:6px}
+.progress i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.progress i.on{background:var(--rose)}
+@media (max-width:380px){.author{grid-template-columns:1fr}.author img{width:100%;height:220px}}
+</style></head><body><div class="page">
+<header class="wrap hero stack">
+  <div class="brand"><span>Наталка Виноградська · кінологиня</span><span class="pill">Урок 3 з 3</span></div>
+  <div class="progress" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <h1>Собака злякався<span>вибухів чи гучних звуків</span></h1>
+  <span class="lesson-tag">Урок 3. «Шукай» і алгоритм при переляку</span>
+  <p class="lead">Нюхання дуже ефективно <b>переключає собаку з подразника й розслабляє.</b> У кінці уроку — алгоритм, який варто зберегти.</p>
+
+  <div class="mini"><img src="img/natalka.jpg" alt=""><div><b>Наталка Виноградська</b><span>кінологиня · 7 років досвіду, 2000+ клієнтів</span></div></div>
+  <div class="recap"><span class="k">Ви вже знаєте</span>Що робити в моменті переляку і дві рухливі вправи: YES та рух по колу з YES.</div>
+</header><section class="wrap stack ex" id="shukai">
+  <div class="ex-head"><span class="ex-num">Вправа 3 · нюх</span></div>
+  <h2>«<span class="sig">Шукай</span>»</h2>
+  <div class="blk"><span class="k">Що робимо</span><p>Піднесіть їжу собаці під ніс, скажіть «шукай» і киньте жменю їжі на землю.</p></div>
+  <div class="blk"><span class="k">Для чого</span><p>Нюхання дуже ефективно переключає собаку з подразника й розслабляє.</p></div>
+  <div class="timing"><span class="k blk">Як тренувати</span><ol class="steps">
+    <li><span>Тренуйте спершу в спокійних умовах без подразників.</span></li>
+    <li><span>Запишіть звук, який лякає, на диктофон і вмикайте на мінімальній гучності. Або відійдіть від подразника на таку відстань, на якій собака ще не нервує.</span></li>
+    <li><span><b>Є звук — одразу «шукай».</b></span></li>
+    <li><span>Поступово підвищуйте гучність або скорочуйте відстань.</span></li>
+    <li><span>Так тренуйте 2–3 тижні.</span></li>
+    <li><span>Потім пробуйте в реальних ситуаціях, спершу відійшовши на безпечну відстань.</span></li>
+  </ol></div>
+  <figure class="vid1"><video controls playsinline preload="metadata" poster="img/shukai.jpg" aria-label="Вправа Шукай"><source src="video/shukai.mp4" type="video/mp4"></video></figure>
+  <p class="cap">На відео: їжу під ніс, «шукай» і жменя їжі на землю. Собака винюхує й переключається.</p>
+</section>
+
+<section class="games" id="realna-sytuatsiia"><div class="wrap stack" style="gap:16px">
+  <span class="pill">Приклад</span>
+  <h2>Ось як виглядає робота в реальній ситуації</h2>
+  <figure class="vid1"><video controls playsinline preload="metadata" poster="img/yes.jpg" aria-label="Робота в реальній ситуації"><source src="video/yes.mp4" type="video/mp4"></video></figure>
+  <p class="cap">Зверніть увагу на реакцію собаки на доторки: щойно ми помітили, що собаці неприємно (вона відскочила), власниця припинила її торкатися.</p>
+</div></section>
+
+<section class="wrap stack" id="alhorytm">
+  <div class="algo">
+    <span class="pill" style="background:var(--pink);color:#fff">Збережіть собі</span>
+    <h2>Алгоритм при переляку</h2>
+    <ol>
+      <li>На короткому повідку без зупинок відійдіть від небезпечного звуку</li>
+      <li>Зробіть одну з рухливих вправ</li>
+      <li>Зробіть «Шукай»</li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap stack" style="padding-top:8px">
+  <div class="note"><b>Усі собаки різні.</b><p>Пробуйте всі три вправи й дивіться, що найкраще працює саме для вашої собаки. Головне — тренувати спершу в спокійних умовах і лише потім у реальних ситуаціях.</p></div>
+</section>
+<footer class="wrap"><span>Наталка Виноградська · кінологиня</span><span>@dogtrainer.vynohradska</span></footer></div></body></html>
